@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.ServiceProcess;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MyDatabaseBackupService
 {
@@ -14,12 +10,23 @@ namespace MyDatabaseBackupService
         /// </summary>
         static void Main()
         {
-            ServiceBase[] ServicesToRun;
-            ServicesToRun = new ServiceBase[]
+            if (Environment.UserInteractive)
             {
-                new Service1()
-            };
-            ServiceBase.Run(ServicesToRun);
+                // Running in console mode
+                Console.WriteLine("Running in console mode...");
+                MyBackupService service = new MyBackupService();
+                service.StartInConsole();
+            }
+            else
+            {
+                // Running as a Windows Service
+                ServiceBase[] ServicesToRun;
+                ServicesToRun = new ServiceBase[]
+                {
+                    new MyBackupService()
+                };
+                ServiceBase.Run(ServicesToRun);
+            }
         }
     }
 }
