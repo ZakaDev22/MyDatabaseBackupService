@@ -24,7 +24,7 @@ namespace MyDatabaseBackupService
                 }
 
                 // Log success
-                clsLog.LogServiceEvent("Backup completed successfully at ");
+                clsLog.LogServiceEvent("Backup completed successfully.");
             }
             catch (SqlException sqlex)
             {
