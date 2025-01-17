@@ -8,6 +8,10 @@ namespace MyDatabaseBackupService
         public MyBackupService()
         {
             InitializeComponent();
+
+            // Create the Main Project Folders If Not Does Not Exist
+            clsLog.CreateFolderIfDoesNotExist(clsGlobal.BackupFolder);
+            clsLog.CreateFolderIfDoesNotExist(clsGlobal.logFolder);
         }
 
         protected override void OnStart(string[] args)
