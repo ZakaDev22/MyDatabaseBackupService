@@ -9,6 +9,9 @@ namespace MyDatabaseBackupService
         public static string BackupFolder = ConfigurationManager.AppSettings["BackupFolder"];
         public static string logFolder = ConfigurationManager.AppSettings["LogFolder"];
         public static string logFilePath = Path.Combine(logFolder, "ServiceLog.txt");
+        private static string databaseName = ConfigurationManager.AppSettings["DatabaseName"];
+        public static string procedureName = "sp_" + databaseName + "_Backup";
+
 
     }
 }

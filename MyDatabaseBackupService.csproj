@@ -48,6 +48,7 @@
   <ItemGroup>
     <Compile Include="clsGlobal.cs" />
     <Compile Include="clsLog.cs" />
+    <Compile Include="clsServiceDataAccess.cs" />
     <Compile Include="MyBackupService.cs">
       <SubType>Component</SubType>
     </Compile>
